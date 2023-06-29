@@ -1,6 +1,9 @@
 import streamlit as st
 import requests
 import json
+from PIL import Image
+
+
 
 def main():
     st.title("API Frontend DI AHMED - POST-GET Debugger")
@@ -11,6 +14,7 @@ def main():
 
 
     ###GET REQUEST###
+    image = Image.open('r2.jpg')
 
     if st.button("Predict with GET"):
         url = url_API
@@ -20,6 +24,9 @@ def main():
         response = requests.get(link)
         result =response.json()
         st.success(f"The result is: {result['result']}")
+        st.image(image, caption='RICCIO SU TELA')
+        st.balloons()
+
 
 ###POST REQUEST###
 
@@ -35,6 +42,9 @@ def main():
                                 )
         result =response.json()
         st.success(f"The result is: {result['result']}")
+        st.image(image, caption='RICCIO SU TELA')
+        st.balloons()
+   
 
 if __name__ == '__main__':
     main()
